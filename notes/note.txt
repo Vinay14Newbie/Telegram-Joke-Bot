@@ -1,0 +1,40 @@
+# Environmental variable
+In Node.js, environment variables are key-value pairs that store configuration information or sensitive data outside of your code. They can be accessed using the process.env object.
+
+##Common Use Cases:
+Storing API Keys and Secrets: Avoid hardcoding sensitive information in your code.
+
+Managing Different Environments: Use NODE_ENV to differentiate between development, testing, and production environments.
+
+Configuring Application Behavior: Set variables that control how your application behaves, such as logging levels or database connections.
+
+##Important Considerations:
+Security: Never commit .env files to version control. Use a secure method to manage and distribute sensitive environment variables.
+
+Naming Conventions: Use uppercase letters and underscores for environment variable names (e.g., MY_API_KEY).
+
+Default Values: Provide default values for environment variables that are not always set.
+
+#how to use environment variable
+link: https://developer.vonage.com/en/blog/how-to-use-environment-variables-in-node-js
+
+
+
+this syntax sets the environment variable for that terminal setion
+export VAR_NAME=value  
+
+
+
+so for global access for this environment variable do this 
+vim ~/.zshrc
+export FIRST_VAR=124
+esc
+:wq   (for saving and esc)
+:q!   (for quiting)
+source ~/.zshrc   (reload the terminal with this code)
+node index.js       (check the environment variable)
+
+
+
+
+But we don't have to use environment variable through terminal/linux, we can use it through the .env file just download 'npm i dotenv' and add the .env file in it.
