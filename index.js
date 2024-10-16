@@ -1,17 +1,18 @@
 const dotenv = require('dotenv');
-const TelegramBot = require('node-telegram-bot-api');
+const TelegramBot = require('node-telegram-bot-api'); // This is a popular Node.js library that helps create and manage Telegram bots. It provides an easy way to interact with Telegram's API.
 const axios = require('axios')
 
-dotenv.config()
+dotenv.config()  //This line loads the environment variables defined in the .env file. It's necessary to securely store the bot's token, avoiding hardcoding it directly in the code.
 
 // TOKEN fetched using @godFather to create a new bot
-const TOKEN = process.env.BOT_TOKEN;
+const TOKEN = process.env.BOT_TOKEN;  //The bot's token, which you get when you create a bot with @BotFather on Telegram, is stored in an environment variable named BOT_TOKEN. The token is accessed using process.env.BOT_TOKEN.
 
 
-// create a bot that uses 'polling' to fetch new updates
+
+// create a bot that uses 'polling' to fetch new updates. Polling means that the bot continuously checks for new updates from Telegram servers instead of using webhooks.   
 const bot = new TelegramBot(TOKEN, {polling: true})
 
-bot.on('message', (msg)=>{
+bot.on('message', (msg)=>{   //listens for any message sent to the bot.
     const text = msg.text;
     console.log("message received: ", text);
 
